@@ -54,8 +54,16 @@ def blog():
 def projects():
 	return 'This is the projects page<br/>{}'.format(url_for('profile', username='John Doe'))
 
+@app.route('/register')
+def register():
+	return render_template('register.html')
+
 with app.test_request_context():
 	print(url_for('index'))
 	print(url_for('hello'))
 	print(url_for('hello', next='/'))
 	print(url_for('profile', username='John Doe'))
+
+	
+if __name__ == '__main__':
+	app.run(debug=True)
