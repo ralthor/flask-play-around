@@ -67,7 +67,37 @@ paths:
       responses:
         201:
           description: Successfully created person in list
-
+  /iris:
+    get:
+      operationId: iris.predict
+      tags:
+        - ml
+      summary: predicts the iris type
+      description: predicts the iris type
+      parameters:
+        - name: sepal_length
+          in: query
+          type: number
+          required: True
+          description: sepal length
+        - name: sepal_width
+          in: query
+          type: number
+          required: True
+          description: sepal width
+        - name: petal_length
+          in: query
+          type: number
+          required: True
+          description: petal length
+        - name: petal_width
+          in: query
+          type: number
+          required: True
+          description: petal width
+      responses:
+        200:
+          description: Successfully predicted the iris type
   /people/{lname}:
     get:
       operationId: people.read_one
